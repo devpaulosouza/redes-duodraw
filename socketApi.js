@@ -4,23 +4,24 @@ const io = socketio();
 
 var connections = new Array()
 
-io.on('connection', client => {
-    connections.push(client.id)
+io.on('connection', function(socket) {
+    connections.push(socket.id)
 
-    client.on('join', () => {
+    socket.on('join', () => {
         console.log('join')
     })
 
-    client.on('sendDraw', function(args){ 
-        console.log('teste ta chegando aqui', args)
+    socket.on('sendDraw', function(data) { 
+        console.log('Servidor diz:', data)
+        socket.broadcast.emit('drawResponse', {mouseX: data[0], mouseY: data[1]})
       })
     
-    console.log('conectou', client.id)
+    console.log('conectou', socket.id)
 
 })
 
 export const send = (x, y) => {
-    io.sockets.emit('hello', { x, y})
+    io.sockets.emit('hello', {x, y})
 }
 
 export default io;
