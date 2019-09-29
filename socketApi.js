@@ -32,5 +32,3 @@ export const send = (x, y) => {
 }
 
 export default io;
-
-// 285461
