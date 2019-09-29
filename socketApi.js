@@ -4,11 +4,21 @@ const io = socketio();
 
 var connections = new Array()
 
+let players = [];
+
+const getPlayer = socket => players.filter(p => p.id == socket.id);
+
 io.on('connection', function(socket) {
     connections.push(socket.id)
 
+
+    players.push(socket);
+
+    socket.emit('position', players.length % 2 == 0 ? 'esquerda' : 'direita');
+
+    console.log('join', players.length)
+
     socket.on('join', () => {
-        console.log('join')
     })
 
     socket.on('sendDraw', function(data) { 
