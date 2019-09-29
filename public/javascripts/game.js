@@ -3,7 +3,7 @@ console.log(io)
 const socket = io('http://localhost:3000')
 
 function setup() {
-    createCanvas(1024, 768);
+    createCanvas(500, 500);
     background(102);
 }
 
