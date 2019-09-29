@@ -5,6 +5,9 @@ const socket = io('http://localhost:3000')
 function setup() {
     createCanvas(500, 500);
     background(102);
+    socket.on('returnDrawerResponse', function() {
+        console.log('id', 'passou aqui!')
+      });
 }
 
 function draw() {
@@ -12,6 +15,9 @@ function draw() {
     if (mouseIsPressed) {
         line(mouseX, mouseY, pmouseX, pmouseY);
 
-        socket.emit('send', {mouseX, mouseY, id: socket.id})
+        socket.emit('sendDraw', {mouseX, mouseY, id: socket.id})
     }
+    socket.on('returnDrawerResponse', function() {
+        console.log('teste')
+    })
 }

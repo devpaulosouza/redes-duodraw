@@ -11,10 +11,9 @@ io.on('connection', client => {
         console.log('join')
     })
 
-    client.on('send', (i, e) => {
-        console.log(e, i)
-        console.log('teste')
-    })
+    client.on('sendDraw', function(args){ 
+        console.log('teste ta chegando aqui', args)
+      })
     
     console.log('conectou', client.id)
 
