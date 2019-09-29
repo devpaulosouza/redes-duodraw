@@ -13,7 +13,8 @@ io.on('connection', function(socket) {
 
     socket.on('sendDraw', function(data) { 
         console.log('Servidor diz:', data)
-        socket.broadcast.emit('drawResponse', {mouseX: data[0], mouseY: data[1]})
+
+        io.sockets.emit('drawResponse', data)
       })
     
     console.log('conectou', socket.id)

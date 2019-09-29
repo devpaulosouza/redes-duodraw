@@ -11,12 +11,11 @@ function draw() {
     stroke(255);
     if (mouseIsPressed) {
         line(mouseX, mouseY, pmouseX, pmouseY);
-        socket.emit('sendDraw', {mouseX, mouseY, id: socket.id}, () => {} //Callback function
-        )
+        socket.emit('sendDraw', {mouseX, mouseY, pmouseX, pmouseY, id: socket.id})
     }
 }
 
 socket.on('drawResponse', data => {
-    line(data.mouseX, data.mouseY, data.mouseX, data.mouseY)
-    console.log('Client says:', message)
+    line(data.mouseX, data.mouseY, data.pmouseX, data.pmouseY)
+    console.log('Client says:', data)
 })
