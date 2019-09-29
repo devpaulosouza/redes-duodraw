@@ -7,6 +7,8 @@ let position;
 function setup() {
     createCanvas(500, 500);
     background(102);
+
+    line(width / 2, 0, width / 2, height)
 }
 
 function myPosition() {
