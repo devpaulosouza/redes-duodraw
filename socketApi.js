@@ -24,7 +24,7 @@ io.on('connection', function(socket) {
     socket.on('sendDraw', function(data) { 
         console.log('Servidor diz:', data)
 
-        io.sockets.emit('drawResponse', data)
+        socket.broadcast.emit('drawResponse', data)
       })
     
     console.log('conectou', socket.id)
