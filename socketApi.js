@@ -4,7 +4,7 @@ const io = socketio();
 
 var connections = [];
 
-const desenhos = [ 'desenha uma fro', 'desenha um arcoiro', 'desenhe uma bola' ];
+const desenhos = [ 'Desenhe uma flor!', 'Desenhe um carro!', 'Desenhe uma bola de praia!' ];
 
 io.on('connection', function(socket) {
 
