@@ -7,7 +7,7 @@ function setup() {
     // cria um quadro para desenho
     createCanvas(1000, 500);
 
-    background(230);
+    background(103);
 
     // desenha uma linha dividindo a tela
     line(width / 2, 0, width / 2, height)
